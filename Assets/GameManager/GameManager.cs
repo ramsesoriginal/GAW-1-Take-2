@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour {
 	public static GameManager manager;
 
 	public enum Levels {
-		Menu
+		Menu,
+		Options,
+		Game
 	};
 
 	public Levels initialLevel;
@@ -17,7 +19,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	private void LoadLevel(Levels level, bool reload = false) {
+	public void LoadLevel(Levels level, bool reload = false) {
 		if (reload || CurrentLevel != level)
 			Application.LoadLevel (level.ToString ("G"));
 	}
