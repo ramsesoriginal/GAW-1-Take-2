@@ -3,6 +3,12 @@ using System.Collections;
 
 public class LoadScenes : MonoBehaviour {
 
+	public GameManager.Levels level;
+
+	public void LoadSelectedLevel() {
+		GameManager.manager.LoadLevel(level);
+	}
+
 	public void LoadOptions () {
 		GameManager.manager.LoadLevel(GameManager.Levels.Options);
 	}
@@ -13,5 +19,9 @@ public class LoadScenes : MonoBehaviour {
 	
 	public void LoadMenu () {
 		GameManager.manager.LoadLevel(GameManager.Levels.Menu);
+	}
+	
+	public void CloseGame () {
+		Application.Quit();
 	}
 }

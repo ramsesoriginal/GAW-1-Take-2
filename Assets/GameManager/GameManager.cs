@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour {
 	public enum Levels {
 		Menu,
 		Options,
-		Game
+		Game,
+		Level1
 	};
 
 	public Levels initialLevel;
