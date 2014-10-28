@@ -658,7 +658,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Select Level:'
+  m_Text: 'Options:'
 --- !u!222 &1276699788
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -762,6 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726eabe7e68a7ad459bbb031ef815461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
 --- !u!4 &1314880615
 Transform:
   m_ObjectHideFlags: 0
