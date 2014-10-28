@@ -12,6 +12,10 @@ public class LoadScenes : MonoBehaviour {
 	public void LoadOptions () {
 		GameManager.manager.LoadLevel(GameManager.Levels.Options);
 	}
+
+	public void ReloadCurrent () {
+		GameManager.manager.LoadLevel(GameManager.manager.CurrentLevel,true);
+	}
 	
 	public void LoadGame () {
 		GameManager.manager.LoadLevel(GameManager.Levels.Game);

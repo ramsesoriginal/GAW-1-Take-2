@@ -9,10 +9,22 @@ public class GameManager : MonoBehaviour {
 		Menu,
 		Options,
 		Game,
-		Level1
+		Level1,
+		Level2,
+		Level3,
+		Level4,
+		Level5,
+		Level6,
+		GameOver
 	};
 
 	public Levels initialLevel;
+
+	public ScoreKeeper scoreKeeper {
+		get {
+			return GetComponent<ScoreKeeper>();
+		}
+	}
 
 	public Levels CurrentLevel {
 		get {
@@ -32,5 +44,8 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	public void SceneInit() {
+		scoreKeeper.StartLevel ();
+		Time.timeScale = 1;
 	}
+
 }
