@@ -23,6 +23,11 @@ public class ScoreKeeper : MonoBehaviour {
 			return bestTime;
 		}
 	}
+	public float StartBestTime {
+		get {
+			return startBestTime;
+		}
+	}
 	public bool AllDone {
 		get {
 			return currentCrates == maxCrates;
@@ -39,6 +44,7 @@ public class ScoreKeeper : MonoBehaviour {
 	private int maxCrates;
 	private float currentTime;
 	private float bestTime;
+	private float startBestTime;
 	private float startTime;
 	private bool running;
 
@@ -49,7 +55,7 @@ public class ScoreKeeper : MonoBehaviour {
 	public void StartLevel() {
 		maxCrates = GameObject.FindGameObjectsWithTag("Crate").Length;
 		currentCrates = 0;
-		bestTime = PlayerPrefs.GetFloat(HighscoreName,6000);
+		startBestTime = bestTime = PlayerPrefs.GetFloat(HighscoreName,6000);
 		running = true;
 		currentTime = startTime = Time.time;
 	}

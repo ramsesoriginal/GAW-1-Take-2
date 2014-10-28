@@ -5,24 +5,30 @@ public class LocalScoreProxy : MonoBehaviour {
 
 	public int CurrentCrates;
 	public string CurrentCratesDisplay;
-	public UnityEngine.UI.Text CurrentCratesText;
+	public UnityEngine.UI.Text[] CurrentCratesText;
 	public int MaxCrates;
 	public string MaxCratesDisplay;
-	public UnityEngine.UI.Text MaxCratesText;
+	public UnityEngine.UI.Text[] MaxCratesText;
 	public float CurrentTime;
 	public string CurrentTimeDisplay;
-	public UnityEngine.UI.Text CurrentTimeText;
+	public UnityEngine.UI.Text[] CurrentTimeText;
 	public float BestTime;
 	public string BestTimeDisplay;
-	public UnityEngine.UI.Text BestTimeText;
+	public UnityEngine.UI.Text[] BestTimeText;
+	public float StartBestTime;
+	public string StartBestTimeDisplay;
+	public UnityEngine.UI.Text[] StartBestTimeText;
+	public bool NewBestTime;
+	public GameObject[] EnableWhenNewBestTime;
 	public bool Running;
 	public bool CurrentLevelDone;
+	public GameObject[] EnableWhenAlreadyDone;
 	public float CurrentLevelHighscore;
 	public string CurrentLevelHighscoreDisplay;
-	public UnityEngine.UI.Text CurrentLevelHighscoreText;
+	public UnityEngine.UI.Text[] CurrentLevelHighscoreText;
 	public string levelName;
-	public UnityEngine.UI.Text LevelNameText;
-	public GameObject EnableWhenDone;
+	public UnityEngine.UI.Text[] LevelNameText;
+	public GameObject[] EnableWhenDone;
 
 	// Use this for initialization
 	void Start () {
@@ -41,34 +47,56 @@ public class LocalScoreProxy : MonoBehaviour {
 		var score = GameManager.manager.scoreKeeper;
 		CurrentCrates = score.CurrentCrates;
 		CurrentCratesDisplay = CurrentCrates.ToString (cratesString);
-		if (CurrentCratesText != null)
-			CurrentCratesText.text = CurrentCratesDisplay;
+		foreach (var c in CurrentCratesText)
+			c.text = CurrentCratesDisplay;
 		MaxCrates = score.MaxCrates;
 		MaxCratesDisplay = MaxCrates.ToString (cratesString);
-		if (MaxCratesText != null)
-			MaxCratesText.text = MaxCratesDisplay;
+		foreach (var c in MaxCratesText)
+			c.text = MaxCratesDisplay;
 		CurrentTime = score.CurrentTime;
 		CurrentTimeDisplay = CurrentTime.ToString (timeString);
-		if (CurrentTimeText != null)
-			CurrentTimeText.text = CurrentTimeDisplay;
+		foreach (var c in CurrentTimeText)
+			c.text = CurrentTimeDisplay;
 		BestTime = score.BestTime;
 		BestTimeDisplay = BestTime.ToString (timeString);
-		if (BestTimeText != null)
-			BestTimeText.text = BestTimeDisplay;
+		foreach (var c in BestTimeText)
+			c.text = BestTimeDisplay;
+		StartBestTime = score.StartBestTime;
+		StartBestTimeDisplay = StartBestTime.ToString (timeString);
+		foreach (var c in StartBestTimeText)
+			c.text = StartBestTimeDisplay;
+		if (BestTime != StartBestTime)
+			NewBestTime = true;
+		else
+			NewBestTime = false;
 		Running = !score.AllDone;
 		CurrentLevelDone = getHighScore () != null;
 		CurrentLevelHighscore = CurrentLevelDone ? (float)getHighScore () : 9999;
 		CurrentLevelHighscoreDisplay = CurrentLevelDone ? ((float)getHighScore ()).ToString(timeString) : "---";
-		if (CurrentLevelHighscoreText != null)
-			CurrentLevelHighscoreText.text = CurrentLevelHighscoreDisplay;
-		if (LevelNameText != null)
-			LevelNameText.text = levelName;
+		foreach (var c in CurrentLevelHighscoreText)
+			c.text = CurrentLevelHighscoreDisplay;
+		foreach (var c in LevelNameText)
+			c.text = levelName;
 		if (Running) {
-			if (EnableWhenDone != null)
-				EnableWhenDone.SetActive (false);
+			foreach (var c in EnableWhenDone)
+				c.SetActive (false);
 		} else {
-			if (EnableWhenDone != null)
-				EnableWhenDone.SetActive (true);
+			foreach (var c in EnableWhenDone)
+				c.SetActive (true);
+		}
+		if (CurrentLevelDone) {
+			foreach (var c in EnableWhenAlreadyDone)
+				c.SetActive (true);
+		} else {
+			foreach (var c in EnableWhenAlreadyDone)
+				c.SetActive (false);
+		}
+		if (NewBestTime) {
+			foreach (var c in EnableWhenNewBestTime)
+				c.SetActive (true);
+		} else {
+			foreach (var c in EnableWhenNewBestTime)
+				c.SetActive (false);
 		}
 	}
 

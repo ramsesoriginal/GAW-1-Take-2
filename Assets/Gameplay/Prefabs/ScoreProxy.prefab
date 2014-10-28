@@ -41,17 +41,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentCrates: 0
   CurrentCratesDisplay: 
+  CurrentCratesText:
+  - {fileID: 0}
   MaxCrates: 0
   MaxCratesDisplay: 
+  MaxCratesText:
+  - {fileID: 0}
   CurrentTime: 0
   CurrentTimeDisplay: 
+  CurrentTimeText:
+  - {fileID: 0}
   BestTime: 0
   BestTimeDisplay: 
+  BestTimeText: []
   Running: 0
   CurrentLevelDone: 0
   CurrentLevelHighscore: 0
   CurrentLevelHighscoreDisplay: 
+  CurrentLevelHighscoreText: []
   levelName: 
+  LevelNameText: []
+  EnableWhenDone:
+  - {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
