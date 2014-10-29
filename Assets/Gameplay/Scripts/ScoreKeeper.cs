@@ -30,7 +30,7 @@ public class ScoreKeeper : MonoBehaviour {
 	}
 	public bool AllDone {
 		get {
-			return currentCrates == maxCrates;
+			return !running || currentCrates == maxCrates;
 		}
 	}
 
@@ -46,7 +46,7 @@ public class ScoreKeeper : MonoBehaviour {
 	private float bestTime;
 	private float startBestTime;
 	private float startTime;
-	private bool running;
+	public bool running;
 
 	public void CollectCrate() {
 		currentCrates++;

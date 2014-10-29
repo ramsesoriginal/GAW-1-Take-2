@@ -51,11 +51,24 @@ MonoBehaviour:
   CurrentTimeDisplay: 
   CurrentTimeText:
   - {fileID: 0}
+  - {fileID: 0}
   BestTime: 0
   BestTimeDisplay: 
-  BestTimeText: []
+  BestTimeText:
+  - {fileID: 0}
+  StartBestTime: 0
+  StartBestTimeDisplay: 
+  StartBestTimeText:
+  - {fileID: 0}
+  NewBestTime: 0
+  EnableWhenNewBestTime:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Running: 0
   CurrentLevelDone: 0
+  EnableWhenAlreadyDone:
+  - {fileID: 0}
   CurrentLevelHighscore: 0
   CurrentLevelHighscoreDisplay: 
   CurrentLevelHighscoreText: []

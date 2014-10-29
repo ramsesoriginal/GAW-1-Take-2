@@ -14,7 +14,9 @@ public class CrateCollector : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Destroy (other.gameObject);
-		GameManager.manager.scoreKeeper.CollectCrate ();
+		if (other.tag == "Crate") {
+			Destroy (other.gameObject);
+			GameManager.manager.scoreKeeper.CollectCrate ();
+		}
 	}
 }
