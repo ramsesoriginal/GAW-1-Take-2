@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public GuiDisabler guiDisabler {
+		get {
+			return GetComponent<GuiDisabler>();
+		}
+	}
+
 	public Levels CurrentLevel {
 		get {
 			return (Levels) System.Enum.Parse(typeof(Levels), Application.loadedLevelName);
@@ -39,12 +45,14 @@ public class GameManager : MonoBehaviour {
 
 	public void InitialInit() {
 		DontDestroyOnLoad (gameObject);
-		LoadLevel (initialLevel);
+		guiDisabler.InitialInit ();
 		GameManager.manager = this;
+		LoadLevel (initialLevel);
 	}
 	
 	public void SceneInit() {
 		scoreKeeper.StartLevel ();
+		guiDisabler.Init ();
 		Time.timeScale = 1;
 	}
 
