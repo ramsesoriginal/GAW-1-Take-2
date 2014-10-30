@@ -45,7 +45,7 @@ GameObject:
   - 65: {fileID: 6500002}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: Bottom
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
