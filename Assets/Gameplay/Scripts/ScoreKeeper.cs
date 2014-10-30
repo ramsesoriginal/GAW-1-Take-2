@@ -52,10 +52,21 @@ public class ScoreKeeper : MonoBehaviour {
 		currentCrates++;
 	}
 
+	public static float MaxHighscore() {
+		var maxHighscore = 6000.0f;
+		if (GameManager.manager.CurrentLevel == GameManager.Levels.Level1)
+			maxHighscore = 10;
+		if (GameManager.manager.CurrentLevel == GameManager.Levels.Level2)
+			maxHighscore = 60;
+		if (GameManager.manager.CurrentLevel == GameManager.Levels.Level3)
+			maxHighscore = 200;
+		return maxHighscore;
+	}
+
 	public void StartLevel() {
 		maxCrates = GameObject.FindGameObjectsWithTag("Crate").Length;
 		currentCrates = 0;
-		startBestTime = bestTime = PlayerPrefs.GetFloat(HighscoreName,6000);
+		startBestTime = bestTime = PlayerPrefs.GetFloat(HighscoreName,MaxHighscore());
 		running = true;
 		currentTime = startTime = Time.time;
 	}
@@ -68,7 +79,7 @@ public class ScoreKeeper : MonoBehaviour {
 					PlayerPrefs.SetFloat (HighscoreName, currentTime);
 					PlayerPrefs.SetInt (HighscoreName+"Done", 1);
 				}
-				bestTime = PlayerPrefs.GetFloat(HighscoreName,6000);
+				bestTime = PlayerPrefs.GetFloat(HighscoreName,MaxHighscore());
 				running = false;
 				Time.timeScale = 0.1f;
 			}

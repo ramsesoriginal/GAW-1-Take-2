@@ -106,7 +106,7 @@ public class LocalScoreProxy : MonoBehaviour {
 		if (string.IsNullOrEmpty(levelName))
 			levelName = GameManager.manager.CurrentLevel.ToString ("G");
 		if (PlayerPrefs.GetInt ("BestTime-" + levelName + "Done", 0) == 1) {
-			score = PlayerPrefs.GetFloat("BestTime-" + levelName,6000);
+			score = PlayerPrefs.GetFloat("BestTime-" + levelName,ScoreKeeper.MaxHighscore());
 		}
 		return score;
 	}

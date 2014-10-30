@@ -28,10 +28,10 @@ public class MoveCameraHere : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("MainCamera").transform.rotation = Quaternion.Lerp(r,_target.rotation,f/distance); 
 			yield return null;
 		}
-		if (laststartTime == _laststartTime) {
+		/*if (laststartTime == _laststartTime) {
 			GameObject.FindGameObjectWithTag ("MainCamera").transform.position = _target.position;
 			GameObject.FindGameObjectWithTag ("MainCamera").transform.rotation = _target.rotation;
-		}
+		}*/
 	}
 
 }

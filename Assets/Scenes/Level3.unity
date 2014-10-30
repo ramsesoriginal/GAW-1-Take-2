@@ -4657,7 +4657,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b477b869831e8ba438f11300c495ecd6, type: 2}
       propertyPath: StartBestTimeText.Array.data[0]
       value: 
-      objectReference: {fileID: 2113441566}
+      objectReference: {fileID: 869677472}
     - target: {fileID: 11400000, guid: b477b869831e8ba438f11300c495ecd6, type: 2}
       propertyPath: EnableWhenNewBestTime.Array.data[0]
       value: 
@@ -9986,7 +9986,7 @@ MonoBehaviour:
   StartBestTime: 0
   StartBestTimeDisplay: 
   StartBestTimeText:
-  - {fileID: 2113441566}
+  - {fileID: 869677472}
   NewBestTime: 0
   EnableWhenNewBestTime:
   - {fileID: 1929792375}
