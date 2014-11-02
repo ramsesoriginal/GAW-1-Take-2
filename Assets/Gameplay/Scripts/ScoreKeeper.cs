@@ -76,14 +76,27 @@ public class ScoreKeeper : MonoBehaviour {
 		wasAlive = true;
 	}
 
+	private void PlayWin() {
+		if (
+			GameManager.manager.CurrentLevel != GameManager.Levels.Game &&
+			GameManager.manager.CurrentLevel != GameManager.Levels.Menu &&
+			GameManager.manager.CurrentLevel != GameManager.Levels.Options && 
+			GameManager.manager.CurrentLevel != GameManager.Levels.GameOver )
+		GameManager.manager.soundEffects.PlayWin ();
+	}
+
 	void Update() {
 		if (running) {
 			currentTime = Time.time - startTime;
 			if (AllDone ) {
-				if (wasAlive) 
+				if (wasAlive && 
+				    GameManager.manager.CurrentLevel != GameManager.Levels.Game &&
+				    GameManager.manager.CurrentLevel != GameManager.Levels.Menu &&
+				    GameManager.manager.CurrentLevel != GameManager.Levels.Options && 
+				    GameManager.manager.CurrentLevel != GameManager.Levels.GameOver) 
 				{
 					wasAlive = false;
-					GameManager.manager.soundEffects.PlayWin ();
+					Invoke ("PlayWin", 0.1f);
 				}
 				if ( currentTime < bestTime) {
 					PlayerPrefs.SetFloat (HighscoreName, currentTime);
