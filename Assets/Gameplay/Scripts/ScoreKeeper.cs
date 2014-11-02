@@ -63,7 +63,11 @@ public class ScoreKeeper : MonoBehaviour {
 		if (GameManager.manager.CurrentLevel == GameManager.Levels.Level3)
 			maxHighscore = 200;
 		if (GameManager.manager.CurrentLevel == GameManager.Levels.Level4)
+			maxHighscore = 300;
+		if (GameManager.manager.CurrentLevel == GameManager.Levels.Level5)
 			maxHighscore = 350;
+		if (GameManager.manager.CurrentLevel == GameManager.Levels.Level6)
+			maxHighscore = 400;
 		return maxHighscore;
 	}
 
