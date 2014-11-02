@@ -11,6 +11,7 @@ public class DestroyAfter : MonoBehaviour {
 	}
 
 	public void SelfDestrcut() {
+		GameManager.manager.soundEffects.PlayDestroy();
 		Destroy (gameObject);
 	}
 

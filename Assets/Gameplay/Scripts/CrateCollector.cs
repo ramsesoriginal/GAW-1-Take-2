@@ -17,6 +17,7 @@ public class CrateCollector : MonoBehaviour {
 		if (other.tag == "Crate") {
 			Destroy (other.gameObject);
 			GameManager.manager.scoreKeeper.CollectCrate ();
+			GameManager.manager.soundEffects.PlayCollect();
 		}
 	}
 }

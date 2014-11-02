@@ -31,6 +31,12 @@ public class GameManager : MonoBehaviour {
 			return GetComponent<GuiDisabler>();
 		}
 	}
+	
+	public SoundEffects soundEffects {
+		get {
+			return GetComponent<SoundEffects>();
+		}
+	}
 
 	public Levels CurrentLevel {
 		get {

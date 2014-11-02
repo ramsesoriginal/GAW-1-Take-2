@@ -7,9 +7,11 @@ public class ExitArea : MonoBehaviour {
 	public GameObject[] DisableWhenLost;
 
 	private static bool lost;
+	private bool wasAlive;
 	// Use this for initialization
 	void Start () {
 		lost = false;
+		wasAlive = true;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +24,11 @@ public class ExitArea : MonoBehaviour {
 				c.SetActive (!lost);
 			if (lost)
 			{
+				if (wasAlive) 
+				{
+					wasAlive = false;
+					GameManager.manager.soundEffects.PlayLoose();
+				}
 				Time.timeScale = 0.1f;
 				GameManager.manager.scoreKeeper.running = false;
 			}

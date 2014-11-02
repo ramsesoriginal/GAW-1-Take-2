@@ -52,6 +52,8 @@ public class ScoreKeeper : MonoBehaviour {
 		currentCrates++;
 	}
 
+	private bool wasAlive;
+
 	public static float MaxHighscore() {
 		var maxHighscore = 6000.0f;
 		if (GameManager.manager.CurrentLevel == GameManager.Levels.Level1)
@@ -71,12 +73,18 @@ public class ScoreKeeper : MonoBehaviour {
 		startBestTime = bestTime = PlayerPrefs.GetFloat(HighscoreName,MaxHighscore());
 		running = true;
 		currentTime = startTime = Time.time;
+		wasAlive = true;
 	}
 
 	void Update() {
 		if (running) {
 			currentTime = Time.time - startTime;
 			if (AllDone ) {
+				if (wasAlive) 
+				{
+					wasAlive = false;
+					GameManager.manager.soundEffects.PlayWin ();
+				}
 				if ( currentTime < bestTime) {
 					PlayerPrefs.SetFloat (HighscoreName, currentTime);
 					PlayerPrefs.SetInt (HighscoreName+"Done", 1);
