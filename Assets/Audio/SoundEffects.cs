@@ -14,6 +14,10 @@ public class SoundEffects : MonoBehaviour {
 			return GetComponent<AudioSource>();
 		}
 	}
+
+	public void Init() {
+		player.volume = PlayerPrefs.GetFloat ("Volume", 1);
+	}
 	
 	private void Play(AudioClip clip) {
 		player.clip = clip;

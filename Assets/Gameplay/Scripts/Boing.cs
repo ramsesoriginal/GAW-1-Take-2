@@ -8,7 +8,6 @@ public class Boing : MonoBehaviour {
 	void OnCollisionExit (Collision collisionInfo) {
 		if (collisionInfo.contacts.Any (q => q.otherCollider.gameObject.tag != "BG")) {
 			GameManager.manager.soundEffects.PlayBoing ();
-			Debug.Log ("boing");
 		}
 	}
 

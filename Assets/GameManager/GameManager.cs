@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad (gameObject);
 		guiDisabler.InitialInit ();
 		GameManager.manager = this;
+		soundEffects.Init ();
 		LoadLevel (initialLevel);
 	}
 	

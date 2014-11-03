@@ -5,6 +5,12 @@ public class GuiDisabler : MonoBehaviour {
 
 	private bool GuiDisabled;
 
+	public bool isActive {
+		get {
+			return !GuiDisabled;
+		}
+	}
+
 	public void Toggle() {
 		GuiDisabled = ! GuiDisabled;
 	}
